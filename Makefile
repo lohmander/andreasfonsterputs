@@ -5,17 +5,17 @@ test-nextjs:
 	echo "No tests atm"
 
 build-wagtail-image:
-	(cd wagtail && docker build -t docker.pkg.github.com/aldowntown/northprojects-solutions/wagtail-northprojects-solutions .)
+	(cd wagtail && docker build -t docker.pkg.github.com/aldowntown/hemforbattringen/wagtail-hemforbattringen .)
 
 build-nextjs-image:
-	(cd nextjs && docker build -t docker.pkg.github.com/aldowntown/northprojects-solutions/nextjs-northprojects-solutions .)
+	(cd nextjs && docker build -t docker.pkg.github.com/aldowntown/hemforbattringen/nextjs-hemforbattringen .)
 
 build-images: build-wagtail-image build-nextjs-image
 
 push-wagtail-image:
-	docker tag docker.pkg.github.com/aldowntown/northprojects-solutions/wagtail-northprojects-solutions docker.pkg.github.com/aldowntown/northprojects-solutions/wagtail-northprojects-solutions:${VERSION}
-	docker push docker.pkg.github.com/aldowntown/northprojects-solutions/wagtail-northprojects-solutions:${VERSION}
+	docker tag docker.pkg.github.com/aldowntown/hemforbattringen/wagtail-hemforbattringen docker.pkg.github.com/aldowntown/hemforbattringen/wagtail-hemforbattringen:${VERSION}
+	docker push docker.pkg.github.com/aldowntown/hemforbattringen/wagtail-hemforbattringen:${VERSION}
 
 push-nextjs-image:
-	docker tag docker.pkg.github.com/aldowntown/northprojects-solutions/nextjs-northprojects-solutions docker.pkg.github.com/aldowntown/northprojects-solutions/nextjs-northprojects-solutions:${VERSION}
-	docker push docker.pkg.github.com/aldowntown/northprojects-solutions/nextjs-northprojects-solutions:${VERSION}
+	docker tag docker.pkg.github.com/aldowntown/hemforbattringen/nextjs-hemforbattringen docker.pkg.github.com/aldowntown/hemforbattringen/nextjs-hemforbattringen:${VERSION}
+	docker push docker.pkg.github.com/aldowntown/hemforbattringen/nextjs-hemforbattringen:${VERSION}
