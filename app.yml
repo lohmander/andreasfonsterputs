@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: npsolutions-wagtail
+  name: hemforbattringen-wagtail
   labels:
-    app: npsolutions-wagtail
+    app: hemforbattringen-wagtail
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: npsolutions-wagtail
+      app: hemforbattringen-wagtail
   template:
     metadata:
       labels:
-        app: npsolutions-wagtail
+        app: hemforbattringen-wagtail
     spec:
       imagePullSecrets:
         - name: regcred
@@ -41,10 +41,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: npsolutions-wagtail
+  name: hemforbattringen-wagtail
 spec:
   selector:
-    app: npsolutions-wagtail
+    app: hemforbattringen-wagtail
   ports:
     - protocol: TCP
       port: 80
@@ -53,18 +53,18 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: npsolutions-nextjs
+  name: hemforbattringen-nextjs
   labels:
-    app: npsolutions-nextjs
+    app: hemforbattringen-nextjs
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: npsolutions-nextjs
+      app: hemforbattringen-nextjs
   template:
     metadata:
       labels:
-        app: npsolutions-nextjs
+        app: hemforbattringen-nextjs
     spec:
       imagePullSecrets:
         - name: regcred
@@ -76,17 +76,17 @@ spec:
                 name: secret-config
           env:
             - name: GRANIT_WAGTAIL_API_URL
-              value: http://npsolutions-wagtail.npsolutions-temp.svc.cluster.local/api/wagtail/v2/
+              value: http://hemforbattringen-wagtail.hemforbattringen-temp.svc.cluster.local/api/wagtail/v2/
           ports:
             - containerPort: 3000
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: npsolutions-nextjs
+  name: hemforbattringen-nextjs
 spec:
   selector:
-    app: npsolutions-nextjs
+    app: hemforbattringen-nextjs
   ports:
     - protocol: TCP
       port: 80
@@ -95,31 +95,31 @@ spec:
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: npsolutions
+  name: hemforbattringen
   annotations:
     cert-manager.io/cluster-issuer: selfsigned-issuer
 spec:
   tls:
     - hosts:
-        - npsolutions.mygranit.site
+        - hemforbattringen.mygranit.site
       secretName: tls-proxied-self-signed
   rules:
-    - host: npsolutions.mygranit.site
+    - host: hemforbattringen.mygranit.site
       http:
         paths:
           - path: /admin
             backend:
-              serviceName: npsolutions-wagtail
+              serviceName: hemforbattringen-wagtail
               servicePort: 80
           - path: /api/preview
             backend:
-              serviceName: npsolutions-nextjs
+              serviceName: hemforbattringen-nextjs
               servicePort: 80
           - path: /api
             backend:
-              serviceName: npsolutions-wagtail
+              serviceName: hemforbattringen-wagtail
               servicePort: 80
           - path: /
             backend:
-              serviceName: npsolutions-nextjs
+              serviceName: hemforbattringen-nextjs
               servicePort: 80

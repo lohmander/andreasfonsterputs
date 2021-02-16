@@ -41,7 +41,7 @@ export function PageFooter(props: PageFooterProps) {
       <Padding x={2} y={4} lg={{ x: 4, y: 12 }}>
         <PageWidth>
           <img
-            src="/logo_alt_white.svg"
+            src="/logo_white.svg"
             alt={props.site?.siteName}
             className="logo"
           />
@@ -150,7 +150,7 @@ export function PageFooter(props: PageFooterProps) {
       </div>
       <style jsx>{`
         .logo {
-          width: 80px;
+          width: 250px;
           margin-bottom: 40px;
         }
 
@@ -162,7 +162,7 @@ export function PageFooter(props: PageFooterProps) {
         }
 
         footer {
-          background-color: black;
+          background-color: #303030;
           color: ${theme.color.primaryContrast};
         }
 
@@ -182,7 +182,7 @@ export function PageFooter(props: PageFooterProps) {
         }
 
         .copyright {
-          background-color: black;
+          background-color: #303030;
         }
 
         .social-logo {

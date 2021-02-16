@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ("wagtailcore", "0059_apply_collection_ordering"),
-        ("npsolutions", "0003_auto_20210126_1108"),
+        ("hemforbattringen", "0003_auto_20210126_1108"),
     ]
 
     operations = [

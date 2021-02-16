@@ -129,7 +129,7 @@ export function PageHeader(props: PageHeaderProps) {
 
       <style jsx>{`
         .logo {
-          height: 60px;
+          height: 40px;
         }
 
         .item {

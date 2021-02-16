@@ -10,7 +10,7 @@ import wagtailgranit.contrib.forms.blocks
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('npsolutions', '0005_auto_20210214_1335'),
+        ('hemforbattringen', '0005_auto_20210214_1335'),
     ]
 
     operations = [

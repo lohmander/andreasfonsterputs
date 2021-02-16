@@ -52,7 +52,7 @@ export function Callout(props: CalloutProps) {
       <style jsx>{`
         section {
           background-color: ${theme.color.secondary};
-          color: ${theme.color.primaryContrast};
+          color: ${theme.color.secondaryContrast};
         }
       `}</style>
     </section>
