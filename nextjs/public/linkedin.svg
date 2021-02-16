@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 2</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Footer2" transform="translate(-1019.000000, -498.000000)">
+            <g id="Group-2" transform="translate(1019.000000, 498.000000)">
+                <rect id="Rectangle-Copy" x="0" y="0" width="30" height="30"></rect>
+                <path d="M7.98,4.5 C7.98,5.881 6.87,7 5.5,7 C4.13,7 3.02,5.881 3.02,4.5 C3.02,3.12 4.13,2 5.5,2 C6.87,2 7.98,3.12 7.98,4.5 Z M8,9 L3,9 L3,25 L8,25 L8,9 Z M15.982,9 L11.014,9 L11.014,25 L15.983,25 L15.983,16.601 C15.983,11.931 22.012,11.549 22.012,16.601 L22.012,25 L27,25 L27,14.869 C27,6.989 18.078,7.276 15.982,11.155 L15.982,9 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

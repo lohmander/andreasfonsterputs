@@ -1,0 +1,6 @@
+[submodule "wagtailgranit"]
+	path = wagtail/wagtailgranit
+	url = git@github.com:aldowntown/wagtail-granit.git
+[submodule "nextjs/src/granit"]
+	path = nextjs/src/granit
+	url = git@github.com:aldowntown/nextjs-granit.git
