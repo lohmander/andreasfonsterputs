@@ -107,7 +107,7 @@ export function PageFooter(props: PageFooterProps) {
                 </div>
               </Grid>
 
-              <Heading level="h4">Följ North Projects</Heading>
+              <Heading level="h4">Följ oss</Heading>
               <Padding top={1}>
                 <Row cross="center">
                   {props.settings?.facebook ? (

@@ -18,20 +18,20 @@ spec:
         - name: regcred
       initContainers:
         - name: migrate
-          image: docker.pkg.github.com/aldowntown/northprojects-solutions/wagtail-northprojects-solutions:v1.0.0-alpha.25
+          image: docker.pkg.github.com/aldowntown/hemforbattringen/wagtail-hemforbattringen:v1.0.0-alpha.2
           command: ["python", "manage.py", "migrate"]
           envFrom:
             - secretRef:
                 name: secret-config
         - name: collectstatic
-          image: docker.pkg.github.com/aldowntown/northprojects-solutions/wagtail-northprojects-solutions:v1.0.0-alpha.25
+          image: docker.pkg.github.com/aldowntown/hemforbattringen/wagtail-hemforbattringen:v1.0.0-alpha.2
           command: ["python", "manage.py", "collectstatic", "--noinput"]
           envFrom:
             - secretRef:
                 name: secret-config
       containers:
         - name: wagtail
-          image: docker.pkg.github.com/aldowntown/northprojects-solutions/wagtail-northprojects-solutions:v1.0.0-alpha.25
+          image: docker.pkg.github.com/aldowntown/hemforbattringen/wagtail-hemforbattringen:v1.0.0-alpha.2
           envFrom:
             - secretRef:
                 name: secret-config
@@ -70,13 +70,13 @@ spec:
         - name: regcred
       containers:
         - name: nextjs
-          image: docker.pkg.github.com/aldowntown/northprojects-solutions/nextjs-northprojects-solutions:v1.0.0-alpha.33
+          image: docker.pkg.github.com/aldowntown/hemforbattringen/nextjs-hemforbattringen:v1.0.0-alpha.1
           envFrom:
             - secretRef:
                 name: secret-config
           env:
             - name: GRANIT_WAGTAIL_API_URL
-              value: http://hemforbattringen-wagtail.hemforbattringen-temp.svc.cluster.local/api/wagtail/v2/
+              value: http://hemforbattringen-wagtail.hemforbattringen-production.svc.cluster.local/api/wagtail/v2/
           ports:
             - containerPort: 3000
 ---
