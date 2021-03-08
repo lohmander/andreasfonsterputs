@@ -143,3 +143,4 @@ minio_data/
 media/
 .DS_Store
 secret.yml
+regcred.yml

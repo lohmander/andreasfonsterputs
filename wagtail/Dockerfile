@@ -29,10 +29,9 @@ RUN pip install "gunicorn==20.0.4"
 
 # Install the project requirements.
 COPY requirements.txt /
+ADD wagtailgranit wagtailgranit
 RUN pip install -r /requirements.txt
 
-ADD wagtailgranit wagtailgranit
-RUN pip install -e wagtailgranit
 
 # Use /app folder as a directory where the source code is stored.
 WORKDIR /app
@@ -60,4 +59,4 @@ USER wagtail
 #   PRACTICE. The database should be migrated manually or using the release
 #   phase facilities of your hosting platform. This is used only so the
 #   Wagtail instance can be started with a simple "docker run" command.
-CMD set -xe; gunicorn hemforbattringen.wsgi:application
+CMD set -xe; gunicorn andreasfonsterputs.wsgi:application
