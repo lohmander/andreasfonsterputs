@@ -5,7 +5,7 @@ from wagtail.admin.edit_handlers import TabbedInterface, ObjectList, FieldPanel
 from wagtail.api import APIField
 from wagtail.contrib.settings.models import register_setting
 from wagtailgranit.models import AbstractStandardPage, AbstractSiteSettings
-from hemforbattringen import blocks
+from andreasfonsterputs import blocks
 
 
 class StandardPage(AbstractStandardPage):

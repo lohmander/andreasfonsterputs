@@ -9,7 +9,7 @@ import wagtailgranit.blocks
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('hemforbattringen', '0001_initial'),
+        ('andreasfonsterputs', '0001_initial'),
     ]
 
     operations = [

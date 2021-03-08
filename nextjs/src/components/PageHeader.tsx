@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import {
   Expand,
+  Heading,
   Padding,
   Position,
   Row,
@@ -72,11 +73,12 @@ export function PageHeader(props: PageHeaderProps) {
                 <Row cross="center" main="space-between">
                   <Link href="/">
                     <a>
-                      <img
+                      <Heading level="h4">{props.title}</Heading>
+                      {/* <img
                         className="logo"
                         src={`/logo_${color}.svg`}
                         alt={props.title}
-                      />
+                      /> */}
                     </a>
                   </Link>
                   <Expand>

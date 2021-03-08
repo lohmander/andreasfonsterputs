@@ -5,8 +5,8 @@ from wagtailgranit.settings import init_settings
 globals().update(init_settings(__file__))
 
 
-WSGI_APPLICATION = "hemforbattringen.wsgi.application"
-INSTALLED_APPS += ["hemforbattringen"]  # noqa
+WSGI_APPLICATION = "andreasfonsterputs.wsgi.application"
+INSTALLED_APPS += ["andreasfonsterputs"]  # noqa
 
 
 LANGUAGE_CODE = "sv-se"
@@ -17,4 +17,4 @@ WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
 
 # Wagtail Granit
 
-SITE_SETTINGS_MODEL = "hemforbattringen.models.SiteSettings"
+SITE_SETTINGS_MODEL = "andreasfonsterputs.models.SiteSettings"

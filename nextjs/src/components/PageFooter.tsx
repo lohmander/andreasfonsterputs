@@ -35,16 +35,14 @@ export interface PageFooterProps {
 
 export function PageFooter(props: PageFooterProps) {
   const theme = useTheme();
+  console.log(props.site);
 
   return (
     <footer>
       <Padding x={2} y={4} lg={{ x: 4, y: 12 }}>
         <PageWidth>
-          <img
-            src="/logo_white.svg"
-            alt={props.site?.siteName}
-            className="logo"
-          />
+          <Heading level="h4">{props.site?.site_name}</Heading>
+
           <Flex
             direction="column"
             md={{ direction: "row", main: "space-between" }}
@@ -149,6 +147,10 @@ export function PageFooter(props: PageFooterProps) {
         </Padding>
       </div>
       <style jsx>{`
+        footer :global(h4) {
+          color: white;
+        }
+
         .logo {
           width: 250px;
           margin-bottom: 40px;
