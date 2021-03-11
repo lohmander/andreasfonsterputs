@@ -45,8 +45,8 @@ export function USPBlock(props: USPBlockProps) {
                 <Col cross="flex-start">
                   <Padding y={4} lg={{ top: 0, bottom: 8 }}>
                     <Position position="relative">
-                      <Box width={350} height={90}>
-                        <WagtailImage fill {...props.logo} disableBlur />
+                      <Box width={300}>
+                        <WagtailImage {...props.logo} disableBlur />
                       </Box>
                     </Position>
                   </Padding>

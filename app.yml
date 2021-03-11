@@ -18,20 +18,20 @@ spec:
         - name: regcred
       initContainers:
         - name: migrate
-          image: docker.pkg.github.com/aldowntown/andreasfonsterputs/wagtail-andreasfonsterputs:v1.0.0-alpha.2
+          image: docker.pkg.github.com/aldowntown/andreasfonsterputs/wagtail-andreasfonsterputs:v1.0.0-alpha.3
           command: ["python", "manage.py", "migrate"]
           envFrom:
             - secretRef:
                 name: secret-config
         - name: collectstatic
-          image: docker.pkg.github.com/aldowntown/andreasfonsterputs/wagtail-andreasfonsterputs:v1.0.0-alpha.2
+          image: docker.pkg.github.com/aldowntown/andreasfonsterputs/wagtail-andreasfonsterputs:v1.0.0-alpha.3
           command: ["python", "manage.py", "collectstatic", "--noinput"]
           envFrom:
             - secretRef:
                 name: secret-config
       containers:
         - name: wagtail
-          image: docker.pkg.github.com/aldowntown/andreasfonsterputs/wagtail-andreasfonsterputs:v1.0.0-alpha.2
+          image: docker.pkg.github.com/aldowntown/andreasfonsterputs/wagtail-andreasfonsterputs:v1.0.0-alpha.3
           envFrom:
             - secretRef:
                 name: secret-config
@@ -70,7 +70,7 @@ spec:
         - name: regcred
       containers:
         - name: nextjs
-          image: docker.pkg.github.com/aldowntown/andreasfonsterputs/nextjs-andreasfonsterputs:v1.0.0-alpha.1
+          image: docker.pkg.github.com/aldowntown/andreasfonsterputs/nextjs-andreasfonsterputs:v1.0.0-alpha.2
           envFrom:
             - secretRef:
                 name: secret-config
