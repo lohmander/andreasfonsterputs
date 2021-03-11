@@ -46,6 +46,8 @@ export default function Page(props) {
         title={siteName}
         menuPages={site.menu}
         brightness={page.page_header_brightness}
+        logoBrightUrl={site.settings?.logo_bright}
+        logoDarkUrl={site.settings?.logo_bright}
       />
       <Essentials.Body page={page} site={site} blocks={blocks} />
       <PageFooter site={site} settings={site?.settings} />

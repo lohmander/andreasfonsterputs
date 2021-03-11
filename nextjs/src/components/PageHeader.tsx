@@ -22,6 +22,8 @@ export interface PageHeaderProps {
   title: string;
   brightness: "dark" | "bright";
   menuPages?: any[];
+  logoBrightUrl?: any;
+  logoDarkUrl?: any;
 }
 
 export function PageHeader(props: PageHeaderProps) {
@@ -59,6 +61,10 @@ export function PageHeader(props: PageHeaderProps) {
   );
   const rightLinks = menuPages?.right?.map(menuLink) ?? [];
   const leftLinks = menuPages?.left?.map(menuLink) ?? [];
+  const logo =
+    props.brightness === "bright"
+      ? props.logoBrightUrl ?? props.logoDarkUrl
+      : props.logoDarkUrl ?? props.logoBrightUrl;
 
   return (
     <>
@@ -73,12 +79,17 @@ export function PageHeader(props: PageHeaderProps) {
                 <Row cross="center" main="space-between">
                   <Link href="/">
                     <a>
-                      <Heading level="h4">{props.title}</Heading>
-                      {/* <img
-                        className="logo"
-                        src={`/logo_${color}.svg`}
-                        alt={props.title}
-                      /> */}
+                      {logo ? (
+                        <img
+                          className="logo"
+                          src={logo.svg_file_url}
+                          alt={props.title}
+                        />
+                      ) : (
+                        <Heading level="h4" color={color}>
+                          {props.title}
+                        </Heading>
+                      )}
                     </a>
                   </Link>
                   <Expand>

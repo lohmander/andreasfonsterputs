@@ -14,6 +14,11 @@ import {
 import { PageWidth } from "granit/components/PageWidth";
 import Link from "next/link";
 
+interface Logo {
+  description: string;
+  svg_file_url: string;
+}
+
 export interface SiteSettings {
   favicon?: string;
   facebook?: string;
@@ -26,6 +31,8 @@ export interface SiteSettings {
   email?: string;
   economy_email?: string;
   phone?: string;
+  logo_bright: Logo;
+  logo_dark: Logo;
 }
 
 export interface PageFooterProps {
@@ -35,13 +42,21 @@ export interface PageFooterProps {
 
 export function PageFooter(props: PageFooterProps) {
   const theme = useTheme();
-  console.log(props.site);
+  const logo =
+    props.settings?.logo_bright?.svg_file_url ??
+    props.settings?.logo_dark?.svg_file_url;
 
   return (
     <footer>
-      <Padding x={2} y={4} lg={{ x: 4, y: 12 }}>
+      <Padding x={2} y={4} lg={{ x: 4, y: 10 }}>
         <PageWidth>
-          <Heading level="h4">{props.site?.site_name}</Heading>
+          {logo ? (
+            <Padding bottom={2}>
+              <img src={logo} alt={props.site?.site_name} />
+            </Padding>
+          ) : (
+            <Heading level="h4">{props.site?.site_name}</Heading>
+          )}
 
           <Flex
             direction="column"
@@ -73,12 +88,12 @@ export function PageFooter(props: PageFooterProps) {
             <div className="contact">
               <Heading level="h4">Kontakta oss</Heading>
               <Grid columns={1} gutter={4} sm={{ columns: 2 }}>
-                <div>
+                {/* <div>
                   <Heading level="h5">Adress</Heading>
                   <Paragraph kind="small">
                     <span className="prewrap">{props.settings?.address}</span>
                   </Paragraph>
-                </div>
+                </div> */}
                 <div>
                   <Heading level="h5">Telefon</Heading>
                   <Paragraph kind="small">
@@ -95,17 +110,17 @@ export function PageFooter(props: PageFooterProps) {
                     </a>
                   </Paragraph>
                 </div>
-                <div>
+                {/* <div>
                   <Heading level="h5">Ekonomi</Heading>
                   <Paragraph kind="small">
                     <a href={`mailto:${props.settings?.economy_email}`}>
                       {props.settings?.economy_email}
                     </a>
                   </Paragraph>
-                </div>
+                </div> */}
               </Grid>
 
-              <Heading level="h4">Följ oss</Heading>
+              {/* <Heading level="h4">Följ oss</Heading>
               <Padding top={1}>
                 <Row cross="center">
                   {props.settings?.facebook ? (
@@ -136,7 +151,7 @@ export function PageFooter(props: PageFooterProps) {
                     </a>
                   ) : null}
                 </Row>
-              </Padding>
+              </Padding> */}
             </div>
           </Flex>
         </PageWidth>
@@ -148,6 +163,10 @@ export function PageFooter(props: PageFooterProps) {
       </div>
       <style jsx>{`
         footer :global(h4) {
+          color: white;
+        }
+
+        nav {
           color: white;
         }
 
