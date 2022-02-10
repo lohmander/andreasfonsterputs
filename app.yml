@@ -14,24 +14,22 @@ spec:
       labels:
         app: andreasfonsterputs-wagtail
     spec:
-      imagePullSecrets:
-        - name: regcred
       initContainers:
         - name: migrate
-          image: docker.pkg.github.com/aldowntown/andreasfonsterputs/wagtail-andreasfonsterputs:v1.0.0-alpha.3
+          image: ghcr.io/aldowntown/andreasfonsterputs/wagtail-andreasfonsterputs:v1.0.0-alpha.3
           command: ["python", "manage.py", "migrate"]
           envFrom:
             - secretRef:
                 name: secret-config
         - name: collectstatic
-          image: docker.pkg.github.com/aldowntown/andreasfonsterputs/wagtail-andreasfonsterputs:v1.0.0-alpha.3
+          image: ghcr.io/aldowntown/andreasfonsterputs/wagtail-andreasfonsterputs:v1.0.0-alpha.3
           command: ["python", "manage.py", "collectstatic", "--noinput"]
           envFrom:
             - secretRef:
                 name: secret-config
       containers:
         - name: wagtail
-          image: docker.pkg.github.com/aldowntown/andreasfonsterputs/wagtail-andreasfonsterputs:v1.0.0-alpha.3
+          image: ghcr.io/aldowntown/andreasfonsterputs/wagtail-andreasfonsterputs:v1.0.0-alpha.3
           envFrom:
             - secretRef:
                 name: secret-config
@@ -66,11 +64,9 @@ spec:
       labels:
         app: andreasfonsterputs-nextjs
     spec:
-      imagePullSecrets:
-        - name: regcred
       containers:
         - name: nextjs
-          image: docker.pkg.github.com/aldowntown/andreasfonsterputs/nextjs-andreasfonsterputs:v1.0.0-alpha.2
+          image: ghcr.io/aldowntown/andreasfonsterputs/nextjs-andreasfonsterputs:v1.0.0-alpha.3
           envFrom:
             - secretRef:
                 name: secret-config
@@ -102,8 +98,28 @@ spec:
   tls:
     - hosts:
         - andreasfonsterputs.mygranit.site
+        - andreasfonsterputs.se
       secretName: tls-proxied-self-signed
   rules:
+    - host: andreasfonsterputs.se
+      http:
+        paths:
+          - path: /admin
+            backend:
+              serviceName: andreasfonsterputs-wagtail
+              servicePort: 80
+          - path: /api/preview
+            backend:
+              serviceName: andreasfonsterputs-nextjs
+              servicePort: 80
+          - path: /api
+            backend:
+              serviceName: andreasfonsterputs-wagtail
+              servicePort: 80
+          - path: /
+            backend:
+              serviceName: andreasfonsterputs-nextjs
+              servicePort: 80
     - host: andreasfonsterputs.mygranit.site
       http:
         paths:
